@@ -312,9 +312,17 @@ gitGraph
 
 ### 🧑🏻‍💻문승규
 
-- axios 모듈화, 커스텀 라우터 개발
-- 상단 네브바 컴포넌트, 판매중인 상품 컴포넌트, 팝업 모달 컴포넌트
-- 회원가입 페이지, 프로필 페이지, 프로필 수정 페이지, 팔로잉/팔로우 페이지, 상품등록 페이지, 상품수정 페이지, 게시글 업로드 페이지
+- 역할
+  - 코드리뷰
+  - 커스텀 훅 강의
+  - 스타일드 컴포넌트 강의
+- UI
+
+  - 컴포넌트: 헤더, 게시글 카드, 유저 정보
+  - 페이지: 홈, 프로필, 404, 검색, 팔로우
+
+- 기능
+  - 검색기능, 팔로우, 좋아요, 게시글 피드, 모달 훅
 
 ### 👩🏻‍💻방지영
 
@@ -374,11 +382,12 @@ gitGraph
         </tr>
         <tr></tr>
         <tr>
-            <td><img src=""
+            <td><img src="https://user-images.githubusercontent.com/84954439/210386236-16b67df4-37bd-4aa2-9d4d-fcd3d353e779.gif"
                     alt=""></td>
             <td>triPlus 피드<ul>
-                    <li>유효성 검사를 진행하고, 오류 메시지를 제공합니다. </li>
-                    <li>이메일과 비밀번호가 유효한 경우 게시판 화면으로 이동합니다.</li>
+                    <li>팔로우한 유저가 없다면 유저를  검색하는 문구와 검색하기 버튼이 나옵니다.</li>
+                    <li>팔로우한 유저가 있다면 유저들의 게시글의 피드를 10개를 보여줍니다.</li>
+                    <li> 스크롤이 맨 아래로 이동 후 피드가 더 있으면 피드를 더 불러옵니다 </li>
                 </ul>
             </td>
         </tr>
@@ -407,32 +416,31 @@ gitGraph
             <th>설명</th>
         </tr>
         <tr>
-            <td><img src=""
+            <td><img src="https://user-images.githubusercontent.com/84954439/210386641-d80c3619-b6e7-4ac0-8465-cc63a3939ef7.gif"
                     alt=""></td>
             <td>검색<ul>
-                    <li>인기/최신으로 게시글 정렬 순서를 변경할 수 있습니다.</li>
-                    <li>드롭다운으로 카테고리를 지정할 수 있습니다.</li>
-                    <li>이미지가 업로드 되지 않은 게시글은 카테고리별 기본 이미지를 제공합니다.</li>
+                    <li>검색창에 검색어를 입력하면 0.3초 후 해당 유저들의 데이터를 보여줍니다.</li>
+                    <li>유저를 클릭하면 해당 유저의 프로필로 이동</li>
                 </ul>
             </td>
         </tr>
         <tr>
-            <td><img src=""
+            <td><img src="https://user-images.githubusercontent.com/84954439/210387992-9dace541-95ec-4de2-a222-bf9566bfe46f.gif"
                     alt=""></td>
             <td>팔로우 및 팔로잉<ul>
-                    <li>인기/최신으로 게시글 정렬 순서를 변경할 수 있습니다.</li>
-                    <li>드롭다운으로 카테고리를 지정할 수 있습니다.</li>
-                    <li>이미지가 업로드 되지 않은 게시글은 카테고리별 기본 이미지를 제공합니다.</li>
+                    <li>팔로우 버튼을 클릭하면 해당 유저를 팔로우합니다.</li>
+                    <li>팔로우 한 상태에서 언팔로우 버튼을 클릭하면 해당 유저를 언팔로우 합니다.</li>
                 </ul>
             </td>
         </tr>
         <tr>
-            <td><img src=""
+            <td><img src="https://user-images.githubusercontent.com/84954439/210387143-1d1919fe-f5a6-4617-881d-fc1c9aadab58.gif"
                     alt=""></td>
-            <td>상대방 프로필<ul>
-                    <li>인기/최신으로 게시글 정렬 순서를 변경할 수 있습니다.</li>
-                    <li>드롭다운으로 카테고리를 지정할 수 있습니다.</li>
-                    <li>이미지가 업로드 되지 않은 게시글은 카테고리별 기본 이미지를 제공합니다.</li>
+            <td>프로필<ul>
+                    <li>하단 메뉴바에서 프로필을 클릭하면 자신의 프로필을 보여줍니다.</li>
+                    <li>팔로잉,팔로워 수를 표시하고 프로필 수정, 상품 등록을 할 수 있습니다.</li>
+                    <li>내가 등록한 게시글과 판매중인 상품을 보여줍니다.</li>
+                    <li>다른 사용자의 프로필에서는 팔로우, 언팔로우를 할 수 있고 해당 사용자의 게시글과 판매상품을 볼 수 있습니다.</li>
                 </ul>
             </td>
         </tr>
@@ -460,11 +468,14 @@ gitGraph
             <th>설명</th>
         </tr>
         <tr>
-            <td><img src=""
+            <td><img src="Jan-04-2023 02-11-21.gif"
                     alt=""></td>
             <td>게시글 작성<ul>
-                    <li>드롭다운 메뉴를 통해 게시글의 카테고리를 설정합니다.</li>
-                    <li>첨부파일 선택 버튼을 이용하여 이미지를 업로드할 수 있습니다.</li>
+                    <li>
+                    하단 메뉴바에서 `게시글 작성` 을 클릭하면 표시됩니다.
+                    </li>
+                    <li>글이 입력되거나 사진이 업로드 되면 `업로드` 버튼이 활성화되고 버튼을 누르면 게시글이 업로드됩니다.</li>
+                    <li>최대 3장까지 이미지 업로드 가능합니다.</li>
                 </ul>
             </td>
         </tr>
@@ -488,11 +499,11 @@ gitGraph
             </td>
         </tr>
         <tr>
-            <td><img src=""
+            <td><img src="Jan-04-2023 01-59-30.gif"
                     alt=""></td>
             <td>게시글 삭제<ul>
-                    <li>드롭다운 메뉴를 통해 게시글의 카테고리를 설정합니다.</li>
-                    <li>첨부파일 선택 버튼을 이용하여 이미지를 업로드할 수 있습니다.</li>
+                    <li>자신이 작성한 게시글인 경우 게시글 우측 버튼을 클릭하면 삭제/수정 모달이 나타납니다.</li>
+                    <li>삭제 버튼을 클릭하면 게시글이 삭제됩니다. </li>
                 </ul>
             </td>
         </tr>
@@ -500,17 +511,17 @@ gitGraph
             <td><img src=""
                     alt=""></td>
             <td>게시글 신고<ul>
-                    <li>드롭다운 메뉴를 통해 게시글의 카테고리를 설정합니다.</li>
-                    <li>첨부파일 선택 버튼을 이용하여 이미지를 업로드할 수 있습니다.</li>
+                    <li>타인이 작성한 게시글일 경우 게시글 우측 버튼을 클릭하면 신고 모달이 나타납니다.</li>
+                    <li>삭제 버튼을 클릭하면 게시글이 신고됩니다. </li>
                 </ul>
             </td>
         </tr>
         <tr>
-            <td><img src=""
+            <td><img src="https://user-images.githubusercontent.com/84954439/210387352-eaf0cf2d-e602-46b3-863a-c0f2d204d776.gif"
                     alt=""></td>
             <td>좋아요<ul>
-                    <li>드롭다운 메뉴를 통해 게시글의 카테고리를 설정합니다.</li>
-                    <li>첨부파일 선택 버튼을 이용하여 이미지를 업로드할 수 있습니다.</li>
+                    <li>게시글에 좋아요 버튼을 클릭하면 좋아요 수가 증가합니다.</li>
+                    <li>좋아요 된 게시글에 한 번 더 누르면 좋아요가 취소되고 좋아요 수가 감소합니다.</li>
                 </ul>
             </td>
         </tr>
@@ -607,57 +618,116 @@ gitGraph
 
 ### 커스텀 훅
 
-#### 1) useObserver
+#### 1) useGetData
 
-기존에 페이지마다 useEffect를 이용해서 유저 정보를 확인했는데 이러한 중복코드가 발생해서 커스텀 라우터를 개발했습니다.
+- API 명세서를 보고 Get 요청에서 동일한 로직을 파악한 후 useGetData라는 커스텀 훅을 만들어 재사용성 높임
+- 사용한 곳: 프로필 유저 정보, 상품 정보, 검색, 게시글 상세
 
-```js
-useEffect(() => {
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  const token = userInfo?.token;
+  ```js
+  export const useGetData = () => {
+    const [data, setData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const userInfo = JSON.parse(localStorage.getItem("userinfo"));
 
-  if (!token) {
-    props.history.push("/login");
-    return;
-  }
-}, []);
-```
-
-페이지에 들어올 때 유저정보가 존재하지않다면 로그인 화면으로 보낼 수 있도록 구현했습니다.
-
-```jsx
-export default function PrivateRoute({ children, ...rest }) {
-  const userInfo = getUserInfo();
-
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        userInfo ? (
-          React.cloneElement(children, { ...props })
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: props.location },
-            }}
-          />
-        )
+    const getData = async (url, name) => {
+      try {
+        const res = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+            "Content-type": "application/json",
+          },
+        });
+        name ? setData(res.data[name]) : setData(res.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
       }
-    />
-  );
-}
-```
+    };
 
-커스텀 라우터를 사용할 때는 아래와 같이 사용할 수 있습니다.
+    return { data, isLoading, setData, getData };
+  };
+  ```
+
+#### 2) useObserver
+
+- 무한 스크롤을 이용하여 웹 최적화 및 사용성 개선
+- Intersection Observer API사용
+- 커스텀 훅으로 만들어 재사용
+- 사용한 곳: 게시글 피드, 나의 게시글, 댓글, 팔로우 리스트
 
 ```js
-<PrivateRoute path="/profile" exact>
-  <ProfilePage />
-</PrivateRoute>
-```
+export const useObserver = (reloadRef, pageNum) => {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const userInfo = JSON.parse(localStorage.getItem("userinfo"));
+  const [page, setPage] = useState(0);
+  const [reloading, setReloading] = useState(false);
+  const [finishReload, setFinishReload] = useState(false);
 
-#### 2)
+  const loadMore = () => setPage((prev) => prev + pageNum);
+
+  const getData = async (url, name) => {
+    setReloading(true);
+    try {
+      const res = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+          "Content-type": "application/json",
+        },
+      });
+      if (name) {
+        if (res.data[name].length === 0) {
+          setFinishReload(true);
+        }
+      } else {
+        if (res.data.length === 0) {
+          setFinishReload(true);
+        }
+      }
+      if (page > 0) {
+        name
+          ? setData((prev) => [...prev, ...res.data[name]])
+          : setData((prev) => [...prev, ...res.data]);
+      } else {
+        name ? setData(res.data[name]) : setData(res.data);
+      }
+      setIsLoading(false);
+      setReloading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    let observer;
+
+    if (reloadRef.current && !finishReload) {
+      const onIntersect = async ([entry], observer) => {
+        if (entry.isIntersecting) {
+          loadMore();
+        }
+      };
+      observer = new IntersectionObserver(onIntersect, { threshold: 1 }); // 추가된 부분
+      observer.observe(reloadRef.current);
+    }
+
+    return () => observer && observer.disconnect();
+  }, [reloadRef.current]);
+
+  return {
+    data,
+    isLoading,
+    setData,
+    getData,
+    loadMore,
+    page,
+    reloading,
+    finishReload,
+    setPage,
+    setFinishReload,
+  };
+};
+```
 
 <br>
 
@@ -690,6 +760,30 @@ export default function PrivateRoute({ children, ...rest }) {
 <br>
 
 ## 10. 트러블 슈팅
+
+- 문제 상황
+  - 유저 기본 프로필 이미지가 블러 처리된 것처럼 흐리게 보인다.
+- 원인 추론
+  - 레티나 디스플레이는 논리픽셀과 물리픽셀의 차이가 발생한다. 그러나 브라우저는 css에서 정의한 픽셀만큼 이미지를 렌더링 해야하기 때문에 원래는 물리픽셀에 맞게 렌더링된 이미지가 논리픽셀 만큼 커져버리게 되었다.
+- 해결 방법
+  1. 화면에 우리가 그리고자 하는 사이즈의 2배 되는 이미지를 사용한다.
+  2. svg를 사용한다 svg는 래스터 이미지(or 비트맵 이미지)와는 다르게 화면 크기가 달라져도 깨지지 않는다.
+
+<br>
+
+- 이미지 비교
+
+  - 1배 png
+
+      <img width="144" alt="Pasted Graphic 3" src="https://user-images.githubusercontent.com/84954439/210384339-6c72df5f-3094-4f48-abad-b75c487a8881.png">
+
+  - 2배 png
+
+      <img width="147" alt="Pasted Graphic 1" src="https://user-images.githubusercontent.com/84954439/210384675-496f8d34-8eb0-4e3c-901a-d061d5f69795.png">
+
+  - svg
+
+      <img width="146" alt="Pasted Graphic 8" src="https://user-images.githubusercontent.com/84954439/210384589-22a64060-1fec-42ab-8a5a-713b0df8b13b.png">
 
 <br>
 
