@@ -468,8 +468,7 @@ gitGraph
             <th>설명</th>
         </tr>
         <tr>
-            <td><img src="Jan-04-2023 02-11-21.gif"
-                    alt=""></td>
+            <td><img src="https://user-images.githubusercontent.com/108205639/210462325-0c923197-f517-4324-8cbd-be051ba1491a.gif" alt=""></td>
             <td>게시글 작성<ul>
                     <li>
                     하단 메뉴바에서 `게시글 작성` 을 클릭하면 표시됩니다.
@@ -481,8 +480,7 @@ gitGraph
         </tr>
         <tr></tr>
         <tr>
-            <td><img src=""
-                    alt=""></td>
+            <td><img src="https://user-images.githubusercontent.com/108205639/210462904-2b9b7f4e-2256-4533-9b69-d29878167da0.gif" alt=""></td>
             <td>게시글 상세<ul>
                     <li>좋아요/스크랩이 가능하며, 댓글을 게시할 수 있습니다.</li>
                     <li>작성한 게시글에만 삭제 버튼이 활성화되어, 작성자만 삭제할 수 있습니다.</li>
@@ -499,8 +497,7 @@ gitGraph
             </td>
         </tr>
         <tr>
-            <td><img src="Jan-04-2023 01-59-30.gif"
-                    alt=""></td>
+            <td><img src="https://user-images.githubusercontent.com/108205639/210462072-f7c17284-e0e3-455f-b69e-0ecb86217fbc.gif" alt=""></td>
             <td>게시글 삭제<ul>
                     <li>자신이 작성한 게시글인 경우 게시글 우측 버튼을 클릭하면 삭제/수정 모달이 나타납니다.</li>
                     <li>삭제 버튼을 클릭하면 게시글이 삭제됩니다. </li>
