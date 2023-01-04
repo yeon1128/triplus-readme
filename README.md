@@ -332,9 +332,18 @@ gitGraph
 
 ### 👩🏻‍💻서정연
 
-- 이메일 회원가입 페이지, 게시글 업로드 페이지, 게시글 상세 페이지
-- 슬라이드 모달 컴포넌트, 버튼 컴포넌트, 댓글 컴포넌트
-- 디자인 기획 및 에셋 제작
+- 역할
+
+  - 프로젝트 진행과정 문서화
+  - 의견 수렴을 위한 구글폼 제작
+
+- UI
+
+  - 컴포넌트: 하단 네브바, 하단 코멘트바
+  - 페이지: 채팅방, 로딩, 게시글 상세, 게시글 업로드
+
+- 기능
+  - 게시글 및 댓글 업로드/수정/삭제/신고 기능, 이미지 프리뷰 커스텀 훅
 
 <br>
 
@@ -382,7 +391,7 @@ gitGraph
         </tr>
         <tr></tr>
         <tr>
-            <td><img src="https://user-images.githubusercontent.com/84954439/210386236-16b67df4-37bd-4aa2-9d4d-fcd3d353e779.gif"
+            <td><img src="https://user-images.githubusercontent.com/84954439/210386236-16b67df4-37bd-4aa2-9d4d-fcd3d353e779.gif" style=""
                     alt=""></td>
             <td>triPlus 피드<ul>
                     <li>팔로우한 유저가 없다면 유저를  검색하는 문구와 검색하기 버튼이 나옵니다.</li>
@@ -471,9 +480,9 @@ gitGraph
             <td><img src="https://user-images.githubusercontent.com/108205639/210462325-0c923197-f517-4324-8cbd-be051ba1491a.gif" alt=""></td>
             <td>게시글 작성<ul>
                     <li>
-                    하단 메뉴바에서 `게시글 작성` 을 클릭하면 표시됩니다.
+                    하단 메뉴바에서 게시글 작성을 클릭하면 표시됩니다.
                     </li>
-                    <li>글이 입력되거나 사진이 업로드 되면 `업로드` 버튼이 활성화되고 버튼을 누르면 게시글이 업로드됩니다.</li>
+                    <li>글이 입력되거나 사진이 업로드 되면 업로드 버튼이 활성화되고 버튼을 누르면 게시글이 업로드됩니다.</li>
                     <li>최대 3장까지 이미지 업로드 가능합니다.</li>
                 </ul>
             </td>
@@ -482,8 +491,9 @@ gitGraph
         <tr>
             <td><img src="https://user-images.githubusercontent.com/108205639/210462904-2b9b7f4e-2256-4533-9b69-d29878167da0.gif" alt=""></td>
             <td>게시글 상세<ul>
-                    <li>좋아요/스크랩이 가능하며, 댓글을 게시할 수 있습니다.</li>
-                    <li>작성한 게시글에만 삭제 버튼이 활성화되어, 작성자만 삭제할 수 있습니다.</li>
+                    <li>게시글 하단  말풍선 아이콘을 클릭하면 게시글 상세 페이지로 이동합니다.</li>
+                    <li>게시글 우측 상단 버튼을 클릭하면 자신의 게시글일 경우 삭제, 수정 버튼이 나오고 타인이 작성한 게시글일 경우 신고 버튼이 나타납니다.</li>
+                    <li>댓글 확인 및 작성이 가능합니다.</li>
                 </ul>
             </td>
         </tr>
@@ -491,7 +501,7 @@ gitGraph
             <td><img src="https://user-images.githubusercontent.com/108205639/210465621-d2856cdc-b3f8-4856-9125-03d9ffe2fcf6.gif" alt=""></td>
             <td>게시글 수정<ul>
                     <li>게시글 우측 상단 버튼을 클릭했을 경우 내가 작성한 게시글이라면 삭제, 수정 버튼이 나타납니다.</li>
-                    <li>수정 버튼을 클릭하면 수정 가능합니다. 이미지를 삭제하거나 수정할 수 있고 </li>
+                    <li>수정 버튼을 클릭하면 수정 가능합니다. 텍스트, 이미지를 삭제하거나 추가할 수 있습니다. </li>
                 </ul>
             </td>
         </tr>
@@ -780,6 +790,45 @@ export const useObserver = (reloadRef, pageNum) => {
 
 <br>
 
+### 2) 커스텀 훅 안에서 커스텀 훅을 사용하지 못하는 이슈
+
+- 문제상황
+  - useDelete 커스텀 훅 안에 useGetCommentList 커스텀 훅을 넣어 사용했는데 불러온 함수가 정상적으로 작동하지 않음.
+- 원인추론
+  - 아래 코드를 예시로 각각의 함수가 실행되는 위치에 따라 실행되는 값이 달라지므로 원했던 기능이 제대로 구현되지 않음.
+
+```js
+const useModal = () => {
+  return { a: 1 };
+};
+const a = useMoadl();
+const b = useModal();
+console, log(a == b);
+```
+
+- 해결방법
+  - 파리미터로 원하는 함수를 받아옴. 그래서 useDelete 훅의 파라미터로 원하는 함수인 handleCloseClick을 넣어 props로 전달받을 수 있도록 처리함.
+- 적용코드
+
+```js
+export const useDelete = (commentId, handleCloseClick) => {
+  // 생략
+  const handleDeleteComment = async (e) => {
+    e.preventDefault();
+    try {
+      // 생략
+      if (res.status === 200) {
+        handlCloseClick();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { handleDeleteComment };
+};
+```
+
 ## 11. 추가 리팩토링
 
--
+- 상태관리
